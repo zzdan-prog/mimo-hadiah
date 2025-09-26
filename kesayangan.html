@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For you babe 💻❤️</title>
+  <style>
+    :root {
+      --bg:#0f172a; --card:#1e293b; --accent:#6366f1; --text:#f1f5f9;
+    }
+    *{box-sizing:border-box;font-family: 'Segoe UI', Roboto, sans-serif;}
+    body{
+      margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,#0f172a,#1e293b);
+      color:var(--text);
+    }
+    .card{
+      width:380px;padding:24px;border-radius:18px;background:var(--card);
+      box-shadow:0 12px 40px rgba(0,0,0,0.5);text-align:center;
+    }
+    h1{margin:0 0 8px;font-size:22px;color:var(--accent);}
+    p.lead{margin:0 0 18px;font-size:14px;opacity:0.8}
+    .quote{
+      min-height:80px;padding:14px 16px;margin-bottom:18px;border-radius:12px;
+      background:rgba(255,255,255,0.05);font-size:15px;display:flex;align-items:center;justify-content:center;
+    }
+    button{
+      padding:10px 14px;margin:4px;border-radius:10px;border:none;cursor:pointer;
+      font-weight:600;background:var(--accent);color:#fff;
+      box-shadow:0 6px 16px rgba(99,102,241,0.4);transition:0.2s;
+    }
+    button:hover{transform:scale(1.05);}
+    .small{font-size:12px;opacity:0.7;margin-top:12px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>💻 buat Mimo ❤️</h1>
+    <p class="lead">Klik tombol biar Mimo dapet gombalan spesial!</p>
+    <div id="quote" class="quote">Halo Mimo 👋 Tekan tombol di bawah~</div>
+    <button id="randomBtn">Gombalan Random</button>
+    <button id="loopBtn">3x Berturut</button>
+    <div class="small">Create ❤️ by Erick</div>
+  </div>
+
+  <script>
+    const quotes = [
+      "Mimo, kamu itu kayak main() di Java — tanpamu hidupku nggak akan jalan ❤️",
+      "Cintaku ke Mimo tuh kayak while(true) — nggak ada hentinya 💻",
+      "Kalau hatiku database, Mimo adalah PRIMARY KEY — unik dan tak tergantikan 🔑",
+      "Mimo itu kayak import java.util.*; semua kebahagiaanku ada di kamu 📦",
+      "Cintaku ke Mimo lebih konsisten daripada git commit setiap hari 📝",
+      "Kalau aku bug, Mimo debugger hatiku 🐞➡️🛠️",
+      "Mimo itu kayak AI-powered IDE — bikin hidupku lebih rapi dan indah ✨"
+    ];
+
+    const quoteEl = document.getElementById("quote");
+    document.getElementById("randomBtn").addEventListener("click", () => {
+      const q = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteEl.textContent = q;
+    });
+
+    document.getElementById("loopBtn").addEventListener("click", () => {
+      let i = 0;
+      const interval = setInterval(() => {
+        quoteEl.textContent = quotes[i % quotes.length];
+        i++;
+        if (i >= 3) clearInterval(interval);
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
